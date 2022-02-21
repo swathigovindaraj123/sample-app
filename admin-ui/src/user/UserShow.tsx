@@ -30,6 +30,7 @@ export const UserShow = (props: ShowProps): React.ReactElement => {
           <Datagrid rowClick="show">
             <DateField source="createdAt" label="Created At" />
             <TextField label="ID" source="id" />
+            <TextField label="Status" source="status" />
             <DateField source="updatedAt" label="Updated At" />
             <ReferenceField label="User" source="user.id" reference="User">
               <TextField source={USER_TITLE_FIELD} />
