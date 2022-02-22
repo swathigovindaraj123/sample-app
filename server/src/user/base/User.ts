@@ -14,8 +14,8 @@ import { ApiProperty } from "@nestjs/swagger";
 import {
   IsInt,
   IsOptional,
-  IsDate,
   IsString,
+  IsDate,
   IsEnum,
   ValidateNested,
 } from "class-validator";
@@ -37,6 +37,14 @@ class User {
 
   @ApiProperty({
     required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  country!: string;
+
+  @ApiProperty({
+    required: true,
   })
   @IsDate()
   @Type(() => Date)
@@ -44,26 +52,22 @@ class User {
   createdAt!: Date;
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: String,
   })
   @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  firstName!: string | null;
+  @Field(() => String)
+  firstName!: string;
 
   @ApiProperty({
-    required: false,
+    required: true,
     enum: EnumUserGender,
   })
   @IsEnum(EnumUserGender)
-  @IsOptional()
   @Field(() => EnumUserGender, {
     nullable: true,
   })
-  gender?: "Male" | "Female" | "Other" | null;
+  gender?: "Male" | "Female" | "Other";
 
   @ApiProperty({
     required: true,
@@ -74,15 +78,12 @@ class User {
   id!: string;
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: String,
   })
   @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  lastName!: string | null;
+  @Field(() => String)
+  lastName!: string;
 
   @ApiProperty({
     required: false,

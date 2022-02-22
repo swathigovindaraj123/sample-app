@@ -11,21 +11,27 @@
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
+import { EnumOrderStatus } from "./EnumOrderStatus";
+import { IsEnum, ValidateNested } from "class-validator";
 import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
-import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 @InputType()
 class OrderCreateInput {
   @ApiProperty({
-    required: false,
+    required: true,
+    enum: EnumOrderStatus,
+  })
+  @IsEnum(EnumOrderStatus)
+  @Field(() => EnumOrderStatus)
+  status!: "Ordered" | "InTransit" | "OutForDelivery" | "Delivered";
+
+  @ApiProperty({
+    required: true,
     type: () => UserWhereUniqueInput,
   })
   @ValidateNested()
   @Type(() => UserWhereUniqueInput)
-  @IsOptional()
-  @Field(() => UserWhereUniqueInput, {
-    nullable: true,
-  })
-  user?: UserWhereUniqueInput | null;
+  @Field(() => UserWhereUniqueInput)
+  user!: UserWhereUniqueInput;
 }
 export { OrderCreateInput };

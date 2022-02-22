@@ -1,5 +1,6 @@
 import { UserWhereUniqueInput } from "../user/UserWhereUniqueInput";
 
 export type OrderCreateInput = {
-  user?: UserWhereUniqueInput | null;
+  status: "Ordered" | "InTransit" | "OutForDelivery" | "Delivered";
+  user: UserWhereUniqueInput;
 };

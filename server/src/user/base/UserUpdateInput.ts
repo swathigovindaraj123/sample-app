@@ -35,18 +35,7 @@ class UserUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  firstName?: string | null;
-
-  @ApiProperty({
-    required: false,
-    enum: EnumUserGender,
-  })
-  @IsEnum(EnumUserGender)
-  @IsOptional()
-  @Field(() => EnumUserGender, {
-    nullable: true,
-  })
-  gender?: "Male" | "Female" | "Other" | null;
+  country?: string;
 
   @ApiProperty({
     required: false,
@@ -57,7 +46,29 @@ class UserUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  lastName?: string | null;
+  firstName?: string;
+
+  @ApiProperty({
+    required: false,
+    enum: EnumUserGender,
+  })
+  @IsEnum(EnumUserGender)
+  @IsOptional()
+  @Field(() => EnumUserGender, {
+    nullable: true,
+  })
+  gender?: "Male" | "Female" | "Other";
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  lastName?: string;
 
   @ApiProperty({
     required: false,

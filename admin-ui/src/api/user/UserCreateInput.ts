@@ -1,8 +1,9 @@
 export type UserCreateInput = {
   age?: number | null;
-  firstName?: string | null;
-  gender?: "Male" | "Female" | "Other" | null;
-  lastName?: string | null;
+  country: string;
+  firstName: string;
+  gender: "Male" | "Female" | "Other";
+  lastName: string;
   password: string;
   roles: Array<string>;
   username: string;

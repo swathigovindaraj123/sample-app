@@ -18,6 +18,7 @@ export const UserCreate = (props: CreateProps): React.ReactElement => {
     <Create {...props}>
       <SimpleForm>
         <NumberInput step={1} label="Age" source="age" />
+        <TextInput label="Country" source="country" />
         <TextInput label="First Name" source="firstName" />
         <SelectInput
           source="gender"
@@ -28,7 +29,6 @@ export const UserCreate = (props: CreateProps): React.ReactElement => {
             { label: "Other", value: "Other" },
           ]}
           optionText="label"
-          allowEmpty
           optionValue="value"
         />
         <TextInput label="Last Name" source="lastName" />

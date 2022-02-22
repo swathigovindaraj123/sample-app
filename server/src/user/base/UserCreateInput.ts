@@ -27,37 +27,36 @@ class UserCreateInput {
   age?: number | null;
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: String,
   })
   @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  firstName?: string | null;
+  @Field(() => String)
+  country!: string;
 
   @ApiProperty({
-    required: false,
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  firstName!: string;
+
+  @ApiProperty({
+    required: true,
     enum: EnumUserGender,
   })
   @IsEnum(EnumUserGender)
-  @IsOptional()
-  @Field(() => EnumUserGender, {
-    nullable: true,
-  })
-  gender?: "Male" | "Female" | "Other" | null;
+  @Field(() => EnumUserGender)
+  gender!: "Male" | "Female" | "Other";
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: String,
   })
   @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  lastName?: string | null;
+  @Field(() => String)
+  lastName!: string;
 
   @ApiProperty({
     required: true,
