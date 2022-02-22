@@ -14,9 +14,8 @@ import { ApiProperty } from "@nestjs/swagger";
 import { IntNullableFilter } from "../../util/IntNullableFilter";
 import { Type } from "class-transformer";
 import { IsOptional, IsEnum } from "class-validator";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
-import { EnumUserGender } from "./EnumUserGender";
 import { StringFilter } from "../../util/StringFilter";
+import { EnumUserGender } from "./EnumUserGender";
 @InputType()
 class UserWhereInput {
   @ApiProperty({
@@ -32,14 +31,25 @@ class UserWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    type: StringFilter,
   })
-  @Type(() => StringNullableFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  firstName?: StringNullableFilter;
+  country?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringFilter,
+  })
+  @Type(() => StringFilter)
+  @IsOptional()
+  @Field(() => StringFilter, {
+    nullable: true,
+  })
+  firstName?: StringFilter;
 
   @ApiProperty({
     required: false,
@@ -65,14 +75,14 @@ class UserWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    type: StringFilter,
   })
-  @Type(() => StringNullableFilter)
+  @Type(() => StringFilter)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => StringFilter, {
     nullable: true,
   })
-  lastName?: StringNullableFilter;
+  lastName?: StringFilter;
 
   @ApiProperty({
     required: false,

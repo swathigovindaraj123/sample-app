@@ -73,15 +73,14 @@ export class OrderControllerBase {
       data: {
         ...data,
 
-        user: data.user
-          ? {
-              connect: data.user,
-            }
-          : undefined,
+        user: {
+          connect: data.user,
+        },
       },
       select: {
         createdAt: true,
         id: true,
+        status: true,
         updatedAt: true,
 
         user: {
@@ -124,6 +123,7 @@ export class OrderControllerBase {
       select: {
         createdAt: true,
         id: true,
+        status: true,
         updatedAt: true,
 
         user: {
@@ -165,6 +165,7 @@ export class OrderControllerBase {
       select: {
         createdAt: true,
         id: true,
+        status: true,
         updatedAt: true,
 
         user: {
@@ -226,15 +227,14 @@ export class OrderControllerBase {
         data: {
           ...data,
 
-          user: data.user
-            ? {
-                connect: data.user,
-              }
-            : undefined,
+          user: {
+            connect: data.user,
+          },
         },
         select: {
           createdAt: true,
           id: true,
+          status: true,
           updatedAt: true,
 
           user: {
@@ -277,6 +277,7 @@ export class OrderControllerBase {
         select: {
           createdAt: true,
           id: true,
+          status: true,
           updatedAt: true,
 
           user: {

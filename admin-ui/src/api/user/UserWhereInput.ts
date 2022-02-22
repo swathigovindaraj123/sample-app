@@ -1,12 +1,12 @@
 import { IntNullableFilter } from "../../util/IntNullableFilter";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
 
 export type UserWhereInput = {
   age?: IntNullableFilter;
-  firstName?: StringNullableFilter;
+  country?: StringFilter;
+  firstName?: StringFilter;
   gender?: "Male" | "Female" | "Other";
   id?: StringFilter;
-  lastName?: StringNullableFilter;
+  lastName?: StringFilter;
   username?: StringFilter;
 };

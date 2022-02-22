@@ -43,6 +43,15 @@ class OrderOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  status?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["Asc", "Desc"],
+  })
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   updatedAt?: SortOrder;
 
   @ApiProperty({

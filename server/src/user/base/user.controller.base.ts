@@ -75,6 +75,7 @@ export class UserControllerBase {
       data: data,
       select: {
         age: true,
+        country: true,
         createdAt: true,
         firstName: true,
         gender: true,
@@ -117,6 +118,7 @@ export class UserControllerBase {
       ...args,
       select: {
         age: true,
+        country: true,
         createdAt: true,
         firstName: true,
         gender: true,
@@ -158,6 +160,7 @@ export class UserControllerBase {
       where: params,
       select: {
         age: true,
+        country: true,
         createdAt: true,
         firstName: true,
         gender: true,
@@ -220,6 +223,7 @@ export class UserControllerBase {
         data: data,
         select: {
           age: true,
+          country: true,
           createdAt: true,
           firstName: true,
           gender: true,
@@ -262,6 +266,7 @@ export class UserControllerBase {
         where: params,
         select: {
           age: true,
+          country: true,
           createdAt: true,
           firstName: true,
           gender: true,
@@ -311,6 +316,7 @@ export class UserControllerBase {
       select: {
         createdAt: true,
         id: true,
+        status: true,
         updatedAt: true,
 
         user: {
