@@ -10,58 +10,35 @@ https://docs.amplication.com/docs/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { InputType, Field } from "@nestjs/graphql";
+import { OrderWhereUniqueInput } from "../../order/base/OrderWhereUniqueInput";
 import { ApiProperty } from "@nestjs/swagger";
-import { SortOrder } from "../../util/SortOrder";
-
-@InputType({
-  isAbstract: true,
-  description: undefined,
-})
-class OrderOrderByInput {
-  @ApiProperty({
-    required: false,
-    enum: ["Asc", "Desc"],
-  })
-  @Field(() => SortOrder, {
+@InputType()
+class OrderUpdateManyWithoutUsersInput {
+  @Field(() => [OrderWhereUniqueInput], {
     nullable: true,
   })
-  createdAt?: SortOrder;
-
   @ApiProperty({
     required: false,
-    enum: ["Asc", "Desc"],
+    type: () => [OrderWhereUniqueInput],
   })
-  @Field(() => SortOrder, {
+  connect?: Array<OrderWhereUniqueInput>;
+
+  @Field(() => [OrderWhereUniqueInput], {
     nullable: true,
   })
-  id?: SortOrder;
-
   @ApiProperty({
     required: false,
-    enum: ["Asc", "Desc"],
+    type: () => [OrderWhereUniqueInput],
   })
-  @Field(() => SortOrder, {
+  disconnect?: Array<OrderWhereUniqueInput>;
+
+  @Field(() => [OrderWhereUniqueInput], {
     nullable: true,
   })
-  status?: SortOrder;
-
   @ApiProperty({
     required: false,
-    enum: ["Asc", "Desc"],
+    type: () => [OrderWhereUniqueInput],
   })
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  updatedAt?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["Asc", "Desc"],
-  })
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  userId?: SortOrder;
+  set?: Array<OrderWhereUniqueInput>;
 }
-
-export { OrderOrderByInput };
+export { OrderUpdateManyWithoutUsersInput };

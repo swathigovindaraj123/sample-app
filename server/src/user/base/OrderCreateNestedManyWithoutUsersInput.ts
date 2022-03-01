@@ -10,16 +10,17 @@ https://docs.amplication.com/docs/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { InputType, Field } from "@nestjs/graphql";
+import { OrderWhereUniqueInput } from "../../order/base/OrderWhereUniqueInput";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString } from "class-validator";
 @InputType()
-class UserWhereUniqueInput {
-  @ApiProperty({
-    required: true,
-    type: String,
+class OrderCreateNestedManyWithoutUsersInput {
+  @Field(() => [OrderWhereUniqueInput], {
+    nullable: true,
   })
-  @IsString()
-  @Field(() => String)
-  id!: string;
+  @ApiProperty({
+    required: false,
+    type: () => [OrderWhereUniqueInput],
+  })
+  connect?: Array<OrderWhereUniqueInput>;
 }
-export { UserWhereUniqueInput };
+export { OrderCreateNestedManyWithoutUsersInput };

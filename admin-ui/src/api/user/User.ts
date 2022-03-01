@@ -2,11 +2,13 @@ import { Order } from "../order/Order";
 
 export type User = {
   age: number | null;
+  country: string;
   createdAt: Date;
-  firstName: string | null;
-  gender?: "Male" | "Female" | "Other" | null;
+  endorsement: boolean | null;
+  firstName: string;
+  gender?: "Male" | "Female" | "Other";
   id: string;
-  lastName: string | null;
+  lastName: string;
   orders?: Array<Order>;
   roles: Array<string>;
   updatedAt: Date;

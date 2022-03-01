@@ -1,12 +1,14 @@
 import { IntNullableFilter } from "../../util/IntNullableFilter";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { OrderListRelationFilter } from "../order/OrderListRelationFilter";
 
 export type UserWhereInput = {
   age?: IntNullableFilter;
-  firstName?: StringNullableFilter;
+  country?: StringFilter;
+  firstName?: StringFilter;
   gender?: "Male" | "Female" | "Other";
   id?: StringFilter;
-  lastName?: StringNullableFilter;
+  lastName?: StringFilter;
+  orders?: OrderListRelationFilter;
   username?: StringFilter;
 };
