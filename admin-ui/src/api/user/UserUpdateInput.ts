@@ -1,8 +1,13 @@
+import { OrderUpdateManyWithoutUsersInput } from "./OrderUpdateManyWithoutUsersInput";
+
 export type UserUpdateInput = {
   age?: number | null;
-  firstName?: string | null;
-  gender?: "Male" | "Female" | "Other" | null;
-  lastName?: string | null;
+  country?: string;
+  endorsement?: boolean | null;
+  firstName?: string;
+  gender?: "Male" | "Female" | "Other";
+  lastName?: string;
+  orders?: OrderUpdateManyWithoutUsersInput;
   password?: string;
   roles?: Array<string>;
   username?: string;

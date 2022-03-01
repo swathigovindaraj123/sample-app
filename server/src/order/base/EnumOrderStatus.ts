@@ -9,13 +9,15 @@ https://docs.amplication.com/docs/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-import { ArgsType, Field } from "@nestjs/graphql";
-import { UserCreateInput } from "./UserCreateInput";
+import { registerEnumType } from "@nestjs/graphql";
 
-@ArgsType()
-class CreateUserArgs {
-  @Field(() => UserCreateInput, { nullable: false })
-  data!: UserCreateInput;
+export enum EnumOrderStatus {
+  Ordered = "Ordered",
+  InTransit = "InTransit",
+  OutForDelivery = "OutForDelivery",
+  Delivered = "Delivered",
 }
 
-export { CreateUserArgs };
+registerEnumType(EnumOrderStatus, {
+  name: "EnumOrderStatus",
+});

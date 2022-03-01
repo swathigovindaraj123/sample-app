@@ -11,45 +11,46 @@ https://docs.amplication.com/docs/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { StringFilter } from "../../util/StringFilter";
+import { OrderWhereInput } from "./OrderWhereInput";
+import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { IsOptional, IsEnum, ValidateNested } from "class-validator";
-import { EnumOrderStatus } from "./EnumOrderStatus";
-import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
+
 @InputType()
-class OrderWhereInput {
+class OrderListRelationFilter {
   @ApiProperty({
     required: false,
-    type: StringFilter,
-  })
-  @Type(() => StringFilter)
-  @IsOptional()
-  @Field(() => StringFilter, {
-    nullable: true,
-  })
-  id?: StringFilter;
-
-  @ApiProperty({
-    required: false,
-    enum: EnumOrderStatus,
-  })
-  @IsEnum(EnumOrderStatus)
-  @IsOptional()
-  @Field(() => EnumOrderStatus, {
-    nullable: true,
-  })
-  status?: "Ordered" | "InTransit" | "OutForDelivery" | "Delivered";
-
-  @ApiProperty({
-    required: false,
-    type: () => UserWhereUniqueInput,
+    type: () => OrderWhereInput,
   })
   @ValidateNested()
-  @Type(() => UserWhereUniqueInput)
+  @Type(() => OrderWhereInput)
   @IsOptional()
-  @Field(() => UserWhereUniqueInput, {
+  @Field(() => OrderWhereInput, {
     nullable: true,
   })
-  user?: UserWhereUniqueInput;
+  every?: OrderWhereInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => OrderWhereInput,
+  })
+  @ValidateNested()
+  @Type(() => OrderWhereInput)
+  @IsOptional()
+  @Field(() => OrderWhereInput, {
+    nullable: true,
+  })
+  some?: OrderWhereInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => OrderWhereInput,
+  })
+  @ValidateNested()
+  @Type(() => OrderWhereInput)
+  @IsOptional()
+  @Field(() => OrderWhereInput, {
+    nullable: true,
+  })
+  none?: OrderWhereInput;
 }
-export { OrderWhereInput };
+export { OrderListRelationFilter };

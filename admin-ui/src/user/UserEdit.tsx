@@ -6,6 +6,7 @@ import {
   EditProps,
   NumberInput,
   TextInput,
+  BooleanInput,
   SelectInput,
   PasswordInput,
   SelectArrayInput,
@@ -18,6 +19,8 @@ export const UserEdit = (props: EditProps): React.ReactElement => {
     <Edit {...props}>
       <SimpleForm>
         <NumberInput step={1} label="Age" source="age" />
+        <TextInput label="Country" source="country" />
+        <BooleanInput label="Endorsement" source="endorsement" />
         <TextInput label="First Name" source="firstName" />
         <SelectInput
           source="gender"
@@ -28,7 +31,6 @@ export const UserEdit = (props: EditProps): React.ReactElement => {
             { label: "Other", value: "Other" },
           ]}
           optionText="label"
-          allowEmpty
           optionValue="value"
         />
         <TextInput label="Last Name" source="lastName" />
